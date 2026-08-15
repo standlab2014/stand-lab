@@ -53,6 +53,15 @@ git push
 | 바꾸고 싶은 것 | 파일 | 위치 |
 |---|---|---|
 | 글, 이름, 논문 목록 | `index.html` | 해당 섹션 |
-| 포인트 색 | `assets/css/style.css` | `:root` 의 `--accent` |
-| 글꼴 | `index.html` 의 Google Fonts 줄 + `style.css` 의 `--font-sans/serif` |
-| 사진 | `assets/img/` 에 넣고 `index.html` 에서 `<img src="assets/img/파일명.jpg">` |
+| 흑백 톤 (글자색·선 색) | `assets/css/style.css` | `:root` 의 `--text` `--muted` `--line` |
+| 여백 크기 | `assets/css/style.css` | `:root` 의 `--gap-y` `--pad-x` |
+| 본문 최대 폭 | `assets/css/style.css` | `:root` 의 `--measure` |
+| 글꼴 | `index.html` 의 Google Fonts 줄 + `style.css` 의 `--serif-display` / `--serif-body` |
+| 로고 | `index.html` 의 `<a class="logo">` (글자라서 텍스트만 고치면 됨) |
+
+## 사진 넣는 법
+
+1. 사진 파일을 `assets/img/` 에 넣습니다 (예: `hero.jpg`)
+2. `index.html` 에서 해당 위치의 주석 처리된 `<img>` 줄을 살리고, 그 아래 `<div class="ph">…</div>` 줄을 지웁니다
+
+컬러 사진을 넣어도 **CSS가 자동으로 흑백 처리**합니다.
