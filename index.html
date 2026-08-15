@@ -4,248 +4,260 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Hanna Cho Lab</title>
-<meta name="description" content="Hanna Cho Lab — research group website.">
+<meta name="description" content="Hanna Cho Lab — a research group studying ____.">
 
-<!-- ▼ 소셜 공유(카톡/트위터)에 뜨는 미리보기. 나중에 og-image.png 넣으면 됩니다 -->
 <meta property="og:title" content="Hanna Cho Lab">
-<meta property="og:description" content="Hanna Cho Lab — research group website.">
+<meta property="og:description" content="Hanna Cho Lab — a research group studying ____.">
 <meta property="og:type" content="website">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
+
+<!-- 자바스크립트가 켜져 있을 때만 '스르륵 나타나기'를 켭니다.
+     (JS가 막힌 환경에서 글이 안 보이는 사고 방지) -->
+<script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
 
 <a class="skip-link" href="#main">Skip to content</a>
 
-<!-- ============ 상단 네비게이션 ============ -->
-<header class="site-header" id="siteHeader">
-  <div class="wrap header-inner">
-    <a class="brand" href="#top">
-      <span class="brand-mark">HC</span>
-      <span class="brand-text">Hanna Cho Lab</span>
-    </a>
+<!-- ═══════════════ 헤더: 왼쪽 햄버거 / 오른쪽 로고 ═══════════════ -->
+<header class="site-header">
+  <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menu" aria-label="Open menu">
+    <span></span><span></span>
+  </button>
 
-    <nav class="nav" id="nav" aria-label="Main">
-      <a href="#about">About</a>
-      <a href="#research">Research</a>
-      <a href="#people">People</a>
-      <a href="#publications">Publications</a>
-      <a href="#news">News</a>
-      <a href="#contact">Contact</a>
-    </nav>
-
-    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="nav" aria-label="Toggle menu">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
+  <!-- ▼ 오리지널 워드마크(글자 로고). 이미지 파일 아니라 텍스트라 어떤 화면에서도 선명합니다 -->
+  <a class="logo" href="#top" aria-label="Hanna Cho Lab, home">
+    <span class="logo-l1">HANNA CHO</span>
+    <span class="logo-rule" aria-hidden="true"></span>
+    <span class="logo-l2">LAB</span>
+  </a>
 </header>
+
+<!-- ═══════════════ 전체화면 메뉴 ═══════════════ -->
+<div class="menu" id="menu" hidden>
+  <nav aria-label="Main">
+    <a href="#research"><span>Research</span></a>
+    <a href="#team"><span>Team</span></a>
+    <a href="#publications"><span>Publications</span></a>
+    <a href="#about"><span>About</span></a>
+    <a href="#contact"><span>Contact</span></a>
+  </nav>
+  <p class="menu-foot">hanna@example.edu</p>
+</div>
 
 <main id="main">
 
-  <!-- ============ HERO ============ -->
+  <!-- ═══════════════ HERO ═══════════════ -->
   <section class="hero" id="top">
-    <div class="wrap hero-inner">
-      <p class="eyebrow reveal">Department of ____ · ____ University</p>
-      <h1 class="hero-title reveal">
-        Hanna Cho <span class="accent">Lab</span>
+    <figure class="hero-figure">
+      <!-- 사진을 assets/img/hero.jpg 로 넣고 아래 주석을 img 태그로 바꾸세요 -->
+      <!-- <img src="assets/img/hero.jpg" alt="Members of the Hanna Cho Lab in discussion"> -->
+      <div class="ph ph-hero">assets/img/hero.jpg</div>
+    </figure>
+
+    <div class="measure">
+      <h1 class="lede">
+        Hanna Cho Lab is a research group dedicated to
+        <em>____</em>, working across ____ and ____.
       </h1>
-      <p class="hero-lead reveal">
-        여기에 랩을 한 문장으로 소개하는 문구를 씁니다.
-        예: We study how ____ shapes ____, combining ____ and ____.
+    </div>
+  </section>
+
+  <!-- ═══════════════ RESEARCH ═══════════════ -->
+  <section class="section" id="research">
+    <div class="measure">
+      <p class="kicker">Research</p>
+      <h2 class="h2">우리가 던지는 질문</h2>
+
+      <p class="prose reveal">
+        For nearly a decade, the lab has been asking the following questions:
+        how can we ____? How do we ____ in a way that ____?
+        (여기에 랩의 핵심 질문 2~3문장을 씁니다.)
       </p>
-      <div class="hero-actions reveal">
-        <a class="btn btn-primary" href="#research">Our Research</a>
-        <a class="btn btn-ghost" href="#contact">Join the Lab</a>
-      </div>
+
+      <p class="prose reveal">We work as:</p>
+
+      <ul class="def-list reveal">
+        <li><strong>Researchers</strong> — 우리가 연구자로서 하는 일을 한두 문장으로.</li>
+        <li><strong>Clinicians</strong> — 임상/현장에서 하는 역할을 한두 문장으로.</li>
+        <li><strong>Collaborators</strong> — 어떤 기관·분야와 협업하는지 한두 문장으로.</li>
+        <li><strong>Educators</strong> — 교육과 후속 세대 양성에 관한 한두 문장으로.</li>
+      </ul>
     </div>
-    <div class="hero-bg" aria-hidden="true"></div>
+
+    <div class="measure themes">
+      <article class="theme reveal">
+        <span class="theme-no">01</span>
+        <h3>Research Theme One</h3>
+        <p>이 주제를 왜, 어떻게 연구하는지 2~3줄.</p>
+      </article>
+      <article class="theme reveal">
+        <span class="theme-no">02</span>
+        <h3>Research Theme Two</h3>
+        <p>이 주제를 왜, 어떻게 연구하는지 2~3줄.</p>
+      </article>
+      <article class="theme reveal">
+        <span class="theme-no">03</span>
+        <h3>Research Theme Three</h3>
+        <p>이 주제를 왜, 어떻게 연구하는지 2~3줄.</p>
+      </article>
+    </div>
   </section>
 
-  <!-- ============ ABOUT ============ -->
-  <section class="section" id="about">
-    <div class="wrap">
-      <p class="section-label">01 — About</p>
-      <div class="about-grid">
-        <div>
-          <h2 class="section-title">랩 소개</h2>
-          <p class="body-text">
-            연구실이 어떤 질문을 다루는지 2~3문단으로 씁니다. 지금은 예시 텍스트예요.
-            우리는 ____ 를 이해하기 위해 ____ 방법을 사용합니다.
-          </p>
-          <p class="body-text">
-            두 번째 문단. 랩의 접근 방식, 협업, 지향점 등을 적으면 좋습니다.
-          </p>
-          <ul class="stat-row">
-            <li><strong>2019</strong><span>Lab founded</span></li>
-            <li><strong>12</strong><span>Members</span></li>
-            <li><strong>40+</strong><span>Publications</span></li>
-          </ul>
-        </div>
-        <figure class="about-figure">
-          <!-- assets/img/lab.jpg 넣고 아래 src 바꾸세요 -->
-          <div class="img-placeholder">Lab photo<br><small>assets/img/lab.jpg</small></div>
-          <figcaption>Lab retreat, 2025</figcaption>
+  <!-- ═══════════════ TEAM ═══════════════ -->
+  <section class="section" id="team">
+    <div class="measure">
+      <p class="kicker">Team</p>
+      <h2 class="h2">구성원</h2>
+    </div>
+
+    <div class="measure">
+      <div class="pi reveal">
+        <figure class="portrait">
+          <!-- <img src="assets/img/hanna-cho.jpg" alt="Hanna Cho"> -->
+          <div class="ph">assets/img/hanna-cho.jpg</div>
         </figure>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ RESEARCH ============ -->
-  <section class="section section-alt" id="research">
-    <div class="wrap">
-      <p class="section-label">02 — Research</p>
-      <h2 class="section-title">연구 주제</h2>
-      <div class="card-grid">
-
-        <article class="card reveal">
-          <div class="card-num">01</div>
-          <h3>Research Theme One</h3>
-          <p>이 주제에 대한 2~3줄 설명. 무엇을 왜 연구하는지 간단히.</p>
-          <ul class="tags"><li>keyword</li><li>method</li></ul>
-        </article>
-
-        <article class="card reveal">
-          <div class="card-num">02</div>
-          <h3>Research Theme Two</h3>
-          <p>이 주제에 대한 2~3줄 설명. 무엇을 왜 연구하는지 간단히.</p>
-          <ul class="tags"><li>keyword</li><li>method</li></ul>
-        </article>
-
-        <article class="card reveal">
-          <div class="card-num">03</div>
-          <h3>Research Theme Three</h3>
-          <p>이 주제에 대한 2~3줄 설명. 무엇을 왜 연구하는지 간단히.</p>
-          <ul class="tags"><li>keyword</li><li>method</li></ul>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ PEOPLE ============ -->
-  <section class="section" id="people">
-    <div class="wrap">
-      <p class="section-label">03 — People</p>
-      <h2 class="section-title">구성원</h2>
-
-      <h3 class="subhead">Principal Investigator</h3>
-      <div class="people-grid">
-        <article class="person reveal">
-          <div class="avatar">HC</div>
-          <h4>Hanna Cho, Ph.D.</h4>
-          <p class="role">Principal Investigator</p>
-          <p class="person-bio">한 줄 소개 / 이전 소속 / 연구 관심사.</p>
-          <p class="person-links">
-            <a href="#">Email</a> · <a href="#">Scholar</a> · <a href="#">CV</a>
+        <div>
+          <h3 class="person-name">Hanna Cho, M.D., Ph.D.</h3>
+          <p class="person-role">Principal Investigator</p>
+          <p class="prose">
+            소속·이전 경력·연구 관심사를 3~4줄로. 예: Professor of ____ at ____ University.
+            Her work focuses on ____.
           </p>
-        </article>
+          <p class="inline-links"><a href="mailto:hanna@example.edu">Email</a><a href="#">Google Scholar</a><a href="#">CV</a></p>
+        </div>
       </div>
 
       <h3 class="subhead">Members</h3>
-      <div class="people-grid">
-        <article class="person reveal">
-          <div class="avatar">AB</div>
+      <ul class="member-grid">
+        <li class="member reveal">
+          <figure class="portrait"><div class="ph">photo</div></figure>
           <h4>Member Name</h4>
-          <p class="role">Ph.D. Student</p>
-          <p class="person-bio">연구 주제 한 줄.</p>
-        </article>
-        <article class="person reveal">
-          <div class="avatar">CD</div>
+          <p class="person-role">Ph.D. Student</p>
+          <p class="person-note">연구 주제 한 줄.</p>
+        </li>
+        <li class="member reveal">
+          <figure class="portrait"><div class="ph">photo</div></figure>
           <h4>Member Name</h4>
-          <p class="role">M.S. Student</p>
-          <p class="person-bio">연구 주제 한 줄.</p>
-        </article>
-        <article class="person reveal">
-          <div class="avatar">EF</div>
+          <p class="person-role">M.D. / Resident</p>
+          <p class="person-note">연구 주제 한 줄.</p>
+        </li>
+        <li class="member reveal">
+          <figure class="portrait"><div class="ph">photo</div></figure>
           <h4>Member Name</h4>
-          <p class="role">Research Assistant</p>
-          <p class="person-bio">연구 주제 한 줄.</p>
-        </article>
-      </div>
+          <p class="person-role">Research Nurse</p>
+          <p class="person-note">연구 주제 한 줄.</p>
+        </li>
+        <li class="member reveal">
+          <figure class="portrait"><div class="ph">photo</div></figure>
+          <h4>Member Name</h4>
+          <p class="person-role">Research Assistant</p>
+          <p class="person-note">연구 주제 한 줄.</p>
+        </li>
+      </ul>
+
+      <h3 class="subhead">Alumni</h3>
+      <p class="prose">Name (2024, now at ____) · Name (2023, now at ____) · Name (2022, now at ____)</p>
     </div>
   </section>
 
-  <!-- ============ PUBLICATIONS ============ -->
-  <section class="section section-alt" id="publications">
-    <div class="wrap">
-      <p class="section-label">04 — Publications</p>
-      <h2 class="section-title">논문</h2>
+  <!-- ═══════════════ PUBLICATIONS ═══════════════ -->
+  <section class="section" id="publications">
+    <div class="measure">
+      <p class="kicker">Publications</p>
+      <h2 class="h2">논문 및 미디어</h2>
 
-      <div class="pub-filters" role="group" aria-label="Filter publications">
+      <div class="filters" role="group" aria-label="Filter by year">
         <button class="chip is-active" data-filter="all">All</button>
         <button class="chip" data-filter="2026">2026</button>
         <button class="chip" data-filter="2025">2025</button>
         <button class="chip" data-filter="2024">2024</button>
       </div>
 
-      <ol class="pub-list">
+      <ol class="pubs">
         <li class="pub" data-year="2026">
           <span class="pub-year">2026</span>
-          <div>
-            <p class="pub-title">Title of the paper goes here.</p>
-            <p class="pub-meta"><em>Cho, H.</em>, Coauthor, A., &amp; Coauthor, B. — <span class="venue">Journal Name</span>, 12(3), 45–67.</p>
-            <p class="pub-links"><a href="#">PDF</a> · <a href="#">DOI</a> · <a href="#">Code</a></p>
+          <div class="pub-body">
+            <p class="pub-title">Title of the paper goes here, set in serif.</p>
+            <p class="pub-meta"><em>Cho H</em>, Coauthor A, Coauthor B. <span class="venue">Journal Name</span>. 2026;12(3):45–67.</p>
+            <p class="inline-links"><a href="#">PDF</a><a href="#">DOI</a></p>
           </div>
         </li>
         <li class="pub" data-year="2025">
           <span class="pub-year">2025</span>
-          <div>
-            <p class="pub-title">Another paper title goes here.</p>
-            <p class="pub-meta">Coauthor, A., &amp; <em>Cho, H.</em> — <span class="venue">Conference Name</span>.</p>
-            <p class="pub-links"><a href="#">PDF</a> · <a href="#">DOI</a></p>
+          <div class="pub-body">
+            <p class="pub-title">Another representative paper from the lab.</p>
+            <p class="pub-meta">Coauthor A, <em>Cho H</em>. <span class="venue">Journal Name</span>. 2025;8(1):1–20.</p>
+            <p class="inline-links"><a href="#">PDF</a><a href="#">DOI</a></p>
           </div>
         </li>
         <li class="pub" data-year="2024">
           <span class="pub-year">2024</span>
-          <div>
+          <div class="pub-body">
             <p class="pub-title">A third example publication title.</p>
-            <p class="pub-meta"><em>Cho, H.</em> — <span class="venue">Journal Name</span>, 8(1), 1–20.</p>
-            <p class="pub-links"><a href="#">PDF</a></p>
+            <p class="pub-meta"><em>Cho H</em>, et al. <span class="venue">Conference Name</span>. 2024.</p>
+            <p class="inline-links"><a href="#">PDF</a></p>
           </div>
         </li>
       </ol>
-    </div>
-  </section>
 
-  <!-- ============ NEWS ============ -->
-  <section class="section" id="news">
-    <div class="wrap">
-      <p class="section-label">05 — News</p>
-      <h2 class="section-title">소식</h2>
-      <ul class="news-list">
-        <li><time datetime="2026-07-01">2026.07</time><p>새 논문이 ____ 에 게재되었습니다.</p></li>
-        <li><time datetime="2026-05-12">2026.05</time><p>____ 님이 랩에 합류했습니다. 환영합니다!</p></li>
-        <li><time datetime="2026-03-02">2026.03</time><p>____ 학회에서 발표했습니다.</p></li>
+      <h3 class="subhead">In the media</h3>
+      <ul class="media-list">
+        <li><time datetime="2026-06">2026.06</time><p><a href="#">기사 제목이 들어갑니다</a> — 매체 이름</p></li>
+        <li><time datetime="2025-11">2025.11</time><p><a href="#">기사 제목이 들어갑니다</a> — 매체 이름</p></li>
       </ul>
     </div>
   </section>
 
-  <!-- ============ CONTACT ============ -->
-  <section class="section section-alt" id="contact">
-    <div class="wrap contact-grid">
-      <div>
-        <p class="section-label">06 — Contact</p>
-        <h2 class="section-title">연락처</h2>
-        <p class="body-text">
-          대학원생·인턴 지원 문의를 환영합니다. 메일에 관심 연구 주제와 CV를 함께 보내주세요.
-        </p>
-        <p class="contact-line"><span>Email</span><a href="mailto:hanna@example.edu">hanna@example.edu</a></p>
-        <p class="contact-line"><span>Office</span>Building ___, Room ___</p>
-        <p class="contact-line"><span>Address</span>___ University, Seoul, Korea</p>
-      </div>
-      <div class="map-placeholder">Map / Building photo</div>
+  <!-- ═══════════════ ABOUT ═══════════════ -->
+  <section class="section" id="about">
+    <div class="measure">
+      <p class="kicker">About</p>
+      <h2 class="h2">랩의 시작</h2>
+      <p class="prose reveal">
+        랩이 어떻게 시작되었는지, 어떤 계기와 문제의식에서 출발했는지 이야기하듯 씁니다.
+        레퍼런스 사이트처럼 이 섹션은 "스토리"로 읽히면 좋습니다.
+      </p>
+      <p class="prose reveal">
+        두 번째 문단. 지금까지의 여정, 앞으로의 방향.
+      </p>
+
+      <figure class="wide-figure reveal">
+        <div class="ph ph-wide">assets/img/lab-wide.jpg</div>
+        <figcaption>Lab retreat, 2025</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ═══════════════ CONTACT ═══════════════ -->
+  <section class="section" id="contact">
+    <div class="measure">
+      <p class="kicker">Contact</p>
+      <h2 class="h2">함께 일하는 건 어렵지 않습니다.</h2>
+      <p class="prose">
+        대학원생·전공의·연구원 지원 문의를 환영합니다.
+        관심 있는 연구 주제와 CV를 함께 보내주세요.
+      </p>
+
+      <dl class="contact-list">
+        <div><dt>Email</dt><dd><a href="mailto:hanna@example.edu">hanna@example.edu</a></dd></div>
+        <div><dt>Phone</dt><dd>+82 2 ____ ____</dd></div>
+        <div><dt>Office</dt><dd>Building ____, Room ____</dd></div>
+        <div><dt>Address</dt><dd>____ University College of Medicine, Seoul, Korea</dd></div>
+      </dl>
     </div>
   </section>
 
 </main>
 
 <footer class="site-footer">
-  <div class="wrap footer-inner">
-    <p>© <span id="year">2026</span> Hanna Cho Lab. All rights reserved.</p>
-    <p class="footer-links"><a href="#top">Back to top ↑</a></p>
+  <div class="measure footer-inner">
+    <p>© <span id="year">2026</span> Hanna Cho Lab</p>
+    <p><a href="#top">Back to top ↑</a></p>
   </div>
 </footer>
 

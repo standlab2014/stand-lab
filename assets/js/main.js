@@ -1,47 +1,50 @@
 /* Hanna Cho Lab — main.js
-   1) 모바일 메뉴  2) 스크롤 시 헤더 선 표시 + 현재 섹션 하이라이트
-   3) 스크롤 등장 애니메이션  4) 논문 연도 필터  5) 푸터 연도 자동 */
+   1) 전체화면 메뉴  2) 스크롤 등장  3) 논문 연도 필터  4) 푸터 연도 */
 
 document.addEventListener('DOMContentLoaded', function () {
 
-  /* 1) 모바일 메뉴 열기/닫기 */
-  var nav = document.getElementById('nav');
-  var toggle = document.getElementById('navToggle');
+  /* ── 1) 전체화면 메뉴 ───────────────────────────── */
+  var btn  = document.getElementById('menuBtn');
+  var menu = document.getElementById('menu');
 
-  toggle.addEventListener('click', function () {
-    var open = nav.classList.toggle('is-open');
-    toggle.setAttribute('aria-expanded', String(open));
+  function openMenu() {
+    menu.hidden = false;
+    // hidden 해제 직후 바로 클래스를 주면 트랜지션이 안 걸려서 한 프레임 기다립니다
+    requestAnimationFrame(function () { menu.classList.add('is-open'); });
+    btn.classList.add('is-open');
+    btn.setAttribute('aria-expanded', 'true');
+    btn.setAttribute('aria-label', 'Close menu');
+    document.body.classList.add('is-locked');
+  }
+
+  function closeMenu() {
+    menu.classList.remove('is-open');
+    btn.classList.remove('is-open');
+    btn.setAttribute('aria-expanded', 'false');
+    btn.setAttribute('aria-label', 'Open menu');
+    document.body.classList.remove('is-locked');
+    // 사라지는 애니메이션이 끝난 뒤에 감춥니다
+    window.setTimeout(function () {
+      if (!menu.classList.contains('is-open')) menu.hidden = true;
+    }, 400);
+  }
+
+  btn.addEventListener('click', function () {
+    if (menu.classList.contains('is-open')) closeMenu();
+    else openMenu();
   });
 
-  nav.querySelectorAll('a').forEach(function (link) {
-    link.addEventListener('click', function () {
-      nav.classList.remove('is-open');
-      toggle.setAttribute('aria-expanded', 'false');
-    });
+  // 메뉴 항목을 누르면 닫히고 해당 위치로 이동
+  menu.querySelectorAll('a').forEach(function (link) {
+    link.addEventListener('click', closeMenu);
   });
 
-  /* 2) 스크롤에 따라 헤더 테두리 */
-  var header = document.getElementById('siteHeader');
-  window.addEventListener('scroll', function () {
-    header.classList.toggle('is-scrolled', window.scrollY > 8);
-  }, { passive: true });
+  // Esc 로도 닫기
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && menu.classList.contains('is-open')) closeMenu();
+  });
 
-  /* 2-b) 현재 보고 있는 섹션 메뉴 강조 */
-  var sections = document.querySelectorAll('main section[id]');
-  var navLinks = nav.querySelectorAll('a');
-
-  var spy = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (!entry.isIntersecting) return;
-      navLinks.forEach(function (a) {
-        a.classList.toggle('is-active', a.getAttribute('href') === '#' + entry.target.id);
-      });
-    });
-  }, { rootMargin: '-45% 0px -50% 0px' });
-
-  sections.forEach(function (s) { spy.observe(s); });
-
-  /* 3) 스크롤 등장 애니메이션 */
+  /* ── 2) 스크롤하면 스르륵 나타나기 ──────────────── */
   var revealer = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
       if (entry.isIntersecting) {
@@ -49,26 +52,26 @@ document.addEventListener('DOMContentLoaded', function () {
         revealer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.12 });
+  }, { threshold: 0.1, rootMargin: '0px 0px -8% 0px' });
 
   document.querySelectorAll('.reveal').forEach(function (el) { revealer.observe(el); });
 
-  /* 4) 논문 연도 필터 */
+  /* ── 3) 논문 연도 필터 ──────────────────────────── */
   var chips = document.querySelectorAll('.chip');
-  var pubs = document.querySelectorAll('.pub');
+  var pubs  = document.querySelectorAll('.pub');
 
   chips.forEach(function (chip) {
     chip.addEventListener('click', function () {
       chips.forEach(function (c) { c.classList.remove('is-active'); });
       chip.classList.add('is-active');
 
-      var filter = chip.dataset.filter;
+      var year = chip.dataset.filter;
       pubs.forEach(function (pub) {
-        pub.hidden = !(filter === 'all' || pub.dataset.year === filter);
+        pub.hidden = !(year === 'all' || pub.dataset.year === year);
       });
     });
   });
 
-  /* 5) 푸터 연도 자동 갱신 */
+  /* ── 4) 푸터 연도 자동 ──────────────────────────── */
   document.getElementById('year').textContent = new Date().getFullYear();
 });
