@@ -1,15 +1,16 @@
 /* Hanna Cho Lab — main.js
-   1) 전체화면 메뉴  2) 스크롤 등장  3) 논문 연도 필터  4) 푸터 연도 */
+   1) Full-screen menu   2) Scroll reveal
+   3) Publication year filter   4) Footer year */
 
 document.addEventListener('DOMContentLoaded', function () {
 
-  /* ── 1) 전체화면 메뉴 ───────────────────────────── */
+  /* ── 1) Full-screen menu ─────────────────────────── */
   var btn  = document.getElementById('menuBtn');
   var menu = document.getElementById('menu');
 
   function openMenu() {
     menu.hidden = false;
-    // hidden 해제 직후 바로 클래스를 주면 트랜지션이 안 걸려서 한 프레임 기다립니다
+    // Wait one frame after removing [hidden], otherwise the fade has nothing to animate from.
     requestAnimationFrame(function () { menu.classList.add('is-open'); });
     btn.classList.add('is-open');
     btn.setAttribute('aria-expanded', 'true');
@@ -23,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
     btn.setAttribute('aria-expanded', 'false');
     btn.setAttribute('aria-label', 'Open menu');
     document.body.classList.remove('is-locked');
-    // 사라지는 애니메이션이 끝난 뒤에 감춥니다
+    // Hide it only after the fade-out has finished.
     window.setTimeout(function () {
       if (!menu.classList.contains('is-open')) menu.hidden = true;
     }, 400);
@@ -34,17 +35,17 @@ document.addEventListener('DOMContentLoaded', function () {
     else openMenu();
   });
 
-  // 메뉴 항목을 누르면 닫히고 해당 위치로 이동
+  // Choosing a link closes the menu and jumps to that section.
   menu.querySelectorAll('a').forEach(function (link) {
     link.addEventListener('click', closeMenu);
   });
 
-  // Esc 로도 닫기
+  // Escape also closes it.
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' && menu.classList.contains('is-open')) closeMenu();
   });
 
-  /* ── 2) 스크롤하면 스르륵 나타나기 ──────────────── */
+  /* ── 2) Fade elements in as they enter the viewport ── */
   var revealer = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
       if (entry.isIntersecting) {
@@ -56,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   document.querySelectorAll('.reveal').forEach(function (el) { revealer.observe(el); });
 
-  /* ── 3) 논문 연도 필터 ──────────────────────────── */
+  /* ── 3) Publication year filter ─────────────────── */
   var chips = document.querySelectorAll('.chip');
   var pubs  = document.querySelectorAll('.pub');
 
@@ -72,6 +73,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  /* ── 4) 푸터 연도 자동 ──────────────────────────── */
+  /* ── 4) Keep the footer year current ────────────── */
   document.getElementById('year').textContent = new Date().getFullYear();
 });

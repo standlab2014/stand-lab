@@ -1,67 +1,73 @@
-# Hanna Cho Lab — 웹사이트
+# Hanna Cho Lab — website
 
-정적 웹사이트(HTML/CSS/JS)입니다. 설치할 프로그램이 없고, GitHub Pages로 **무료** 배포됩니다.
+A static website: plain HTML, CSS and JavaScript. Nothing to install, no build step,
+and it is hosted free on GitHub Pages.
 
-## 폴더 구조
+## Folder structure
 
 ```
 hanna-cho-lab/
-├── index.html              ← 모든 글/내용이 여기 있음
+├── index.html              ← all of the text lives here
 ├── assets/
-│   ├── css/style.css       ← 색·글꼴·간격 (맨 위 :root 만 바꿔도 분위기 확 바뀜)
-│   ├── js/main.js          ← 메뉴, 애니메이션, 논문 필터
-│   └── img/                ← 사진 넣는 곳
-└── .nojekyll               ← GitHub Pages가 파일을 그대로 쓰게 하는 설정
+│   ├── css/style.css       ← colours, type and spacing (start at :root)
+│   ├── js/main.js          ← menu, scroll animation, publication filter
+│   └── img/                ← photographs go here
+└── .nojekyll               ← tells GitHub Pages to serve the files as they are
 ```
 
-## 로컬에서 보기
+## Viewing it locally
 
-`index.html` 파일을 더블클릭하면 브라우저에서 바로 열립니다. 끝.
+Double-click `index.html` and it opens in your browser. That's all.
 
-## GitHub에 올리기 (처음 한 번)
+## Publishing it on GitHub (one-time setup)
 
-1. github.com → 우측 상단 **+** → **New repository**
-2. 이름: `hanna-cho-lab` / **Public** / 나머지 체크 없이 **Create repository**
-3. 터미널에서:
+1. On github.com, click **+** in the top right → **New repository**
+2. Name it `hanna-cho-lab`, choose **Public**, and create it with no extra files
+3. In Terminal:
 
 ```bash
 cd /Users/yujinlee/CODE/hanna-cho-lab
-git add .
-git commit -m "첫 커밋: 랩 웹사이트"
+git remote add origin https://github.com/<your-username>/hanna-cho-lab.git
 git branch -M main
-git remote add origin https://github.com/<내아이디>/hanna-cho-lab.git
 git push -u origin main
 ```
 
-## 인터넷에 공개하기 (GitHub Pages)
+Then open the repository → **Settings** → **Pages** → Source: **Deploy from a branch**
+→ Branch: **main** / **/ (root)** → **Save**.
 
-레포 페이지 → **Settings** → 왼쪽 **Pages** → Source: **Deploy from a branch** → Branch: **main** / **/ (root)** → Save.
+After a minute or two the site is live at:
+`https://<your-username>.github.io/hanna-cho-lab/`
 
-1~2분 뒤 이 주소로 열립니다:
-`https://<내아이디>.github.io/hanna-cho-lab/`
-
-## 수정한 뒤 다시 올리기 (매번 이 3줄)
+## Publishing later changes
 
 ```bash
 git add .
-git commit -m "내용 수정"
+git commit -m "Update publications"
 git push
 ```
 
-## 자주 바꾸는 곳
+## Where to change things
 
-| 바꾸고 싶은 것 | 파일 | 위치 |
+| What you want to change | File | Where |
 |---|---|---|
-| 글, 이름, 논문 목록 | `index.html` | 해당 섹션 |
-| 흑백 톤 (글자색·선 색) | `assets/css/style.css` | `:root` 의 `--text` `--muted` `--line` |
-| 여백 크기 | `assets/css/style.css` | `:root` 의 `--gap-y` `--pad-x` |
-| 본문 최대 폭 | `assets/css/style.css` | `:root` 의 `--measure` |
-| 글꼴 | `index.html` 의 Google Fonts 줄 + `style.css` 의 `--serif-display` / `--serif-body` |
-| 로고 | `index.html` 의 `<a class="logo">` (글자라서 텍스트만 고치면 됨) |
+| Text, names, publication list | `index.html` | the relevant section |
+| Black-and-white tones | `assets/css/style.css` | `--text`, `--muted`, `--line` in `:root` |
+| Amount of whitespace | `assets/css/style.css` | `--gap-y`, `--pad-x` in `:root` |
+| Maximum text width | `assets/css/style.css` | `--measure` in `:root` |
+| Typefaces | `index.html` (Google Fonts link) and `--serif-display` / `--serif-body` |
+| Logo | `index.html` | the `<a class="logo">` element — it is live text, not an image |
 
-## 사진 넣는 법
+## Adding photographs
 
-1. 사진 파일을 `assets/img/` 에 넣습니다 (예: `hero.jpg`)
-2. `index.html` 에서 해당 위치의 주석 처리된 `<img>` 줄을 살리고, 그 아래 `<div class="ph">…</div>` 줄을 지웁니다
+1. Put the file in `assets/img/` (for example `hero.jpg`)
+2. In `index.html`, uncomment the `<img>` line at that spot and delete the
+   `<div class="ph">…</div>` line below it
 
-컬러 사진을 넣어도 **CSS가 자동으로 흑백 처리**합니다.
+Colour photographs are converted to black and white automatically by the CSS,
+so there is no need to edit them first.
+
+## Notes
+
+- The site adapts to phones and tablets, and follows the reader's light or dark mode.
+- The publication list filters by year using the buttons above it.
+- The logo is an original wordmark built from the words "Hanna Cho Lab".
