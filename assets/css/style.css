@@ -14,6 +14,12 @@
   --fill:    #f2f2f2;   /* image placeholders and card panels */
   --ink:     #0d0d0d;   /* the dark hero panel, in both themes */
 
+  /* ── Yonsei blue — the one accent in an otherwise black-and-white site.
+     Sampled from yonsei.ac.kr: #002455 is the deep navy, #05367B the blue.  ── */
+  --accent:      #05367b;   /* between blue and navy */
+  --accent-deep: #002455;   /* Yonsei navy */
+  --accent-soft: #9dbce5;   /* legible tint for use on dark backgrounds */
+
   /* ── Typefaces ── */
   --serif-display: "Instrument Serif", Georgia, serif;
   --serif-body:    "Newsreader", Georgia, serif;
@@ -34,6 +40,7 @@
     --muted: #9a9a9a;
     --line:  #262626;
     --fill:  #171717;
+    --accent: #8fb2de;   /* lightened so it stays legible on a dark page */
   }
 }
 
@@ -58,6 +65,8 @@ a{ color:inherit; }
 /* Every photograph is rendered in black and white, so colour images
    can be dropped in without editing them first. */
 img{ filter:grayscale(1) contrast(1.04); }
+/* ...except the university mark, which keeps its official colour. */
+.brand-logo{ filter:none; }
 
 .measure{ width:min(100% - (var(--pad-x) * 2), var(--measure)); margin-inline:auto; }
 .wide{    width:min(100% - (var(--pad-x) * 2), var(--wide));    margin-inline:auto; }
@@ -73,11 +82,14 @@ img{ filter:grayscale(1) contrast(1.04); }
   position:fixed; inset:0 0 auto 0; z-index:90;  /* above the menu (70) so the close button stays visible */
   display:flex; align-items:flex-start; justify-content:space-between;
   padding:clamp(22px,3vw,30px) var(--pad-x);
-  mix-blend-mode:difference;   /* stays legible over the dark hero and over white alike */
   pointer-events:none;
 }
 .site-header > *{ pointer-events:auto; }
-@media (prefers-color-scheme: dark){ .site-header{ mix-blend-mode:normal; } }
+
+/* Over the dark hero the mark is knocked out to white; once the header turns
+   solid it returns to the Yonsei blue on a white bar. */
+.site-header:not(.is-solid) .brand-logo{ filter:brightness(0) invert(1); }
+@media (prefers-color-scheme: dark){ .brand-logo{ filter:brightness(0) invert(1); } }
 
 /* Once you scroll past the hero the header becomes a solid bar, so it never
    sits illegibly on top of running text. */
@@ -91,20 +103,17 @@ img{ filter:grayscale(1) contrast(1.04); }
 }
 .site-header.is-solid .brand{ color:var(--text); }
 .site-header.is-solid .menu-btn span{ background:var(--text); }
+.site-header.is-solid .brand-rule{ background:var(--accent); }
 
-/* ── Wordmark: institution line, then HANNA CHO — a rule — LAB ── */
+/* ── University mark above, then HANNA CHO — a rule — LAB ── */
 .brand{
-  display:grid; gap:7px; justify-items:start;
+  display:grid; gap:11px; justify-items:start;
   text-decoration:none; line-height:1;
   font-family:var(--sans); color:#fff;
 }
 @media (prefers-color-scheme: dark){ .brand{ color:var(--text); } }
 
-.brand-inst{
-  font-size:clamp(8.5px,.72vw,10px); font-weight:600;
-  letter-spacing:.2em; text-transform:uppercase;
-  opacity:.72;
-}
+.brand-logo{ height:clamp(24px,2.4vw,30px); width:auto; }
 .brand-mark{ display:flex; align-items:center; gap:10px; }
 .brand-name{ font-size:clamp(15px,1.4vw,18px); font-weight:700; letter-spacing:.02em; }
 .brand-rule{

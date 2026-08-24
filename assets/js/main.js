@@ -50,9 +50,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
   if (header) {
     var threshold = function () {
-      // On the landing page the header stays transparent across the dark hero;
-      // everywhere else it turns solid as soon as the page moves.
-      return heroPanel ? heroPanel.offsetHeight - header.offsetHeight : 40;
+      // On the landing page the header stays transparent across the dark hero.
+      // Pages without a hero have no dark backdrop, so the header is solid
+      // from the top — otherwise the knocked-out white mark would be invisible.
+      return heroPanel ? heroPanel.offsetHeight - header.offsetHeight : -1;
     };
     var syncHeader = function () {
       header.classList.toggle('is-solid', window.scrollY > threshold());
