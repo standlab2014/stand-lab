@@ -12,7 +12,7 @@
   --muted:   #6f6f6f;   /* secondary text */
   --line:    #e2e2e2;   /* hairline rules */
   --fill:    #f2f2f2;   /* image placeholders and card panels */
-  --ink:     #0d0d0d;   /* the dark hero panel, in both themes */
+  --ink:     #002455;   /* the hero panel — Yonsei navy, in both themes */
 
   /* ── Yonsei blue — the one accent in an otherwise black-and-white site.
      Sampled from yonsei.ac.kr: #002455 is the deep navy, #05367B the blue.  ── */
