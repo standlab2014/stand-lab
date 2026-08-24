@@ -7,13 +7,20 @@ and it is hosted free on GitHub Pages.
 
 ```
 hanna-cho-lab/
-├── index.html              ← all of the text lives here
+├── index.html              ← landing page: hero, mission, four cards, carousel
+├── research.html           ← the questions we ask, four lines of work
+├── publications.html       ← selected papers, filterable by year
+├── about.html              ← Hanna, appointments, the team, join the lab
+├── media.html              ← broadcast and press coverage
 ├── assets/
-│   ├── css/style.css       ← colours, type and spacing (start at :root)
-│   ├── js/main.js          ← menu, scroll animation, publication filter
+│   ├── css/style.css       ← colours, type and spacing, shared by every page
+│   ├── js/main.js          ← menu, carousel, scroll animation, year filter
 │   └── img/                ← photographs go here
 └── .nojekyll               ← tells GitHub Pages to serve the files as they are
 ```
+
+The header, menu and footer are repeated in each HTML file. If you change one of
+them, change it in all five.
 
 ## Viewing it locally
 
