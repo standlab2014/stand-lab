@@ -88,8 +88,9 @@ img{ filter:grayscale(1) contrast(1.04); }
 
 /* Over the dark hero the mark is knocked out to white; once the header turns
    solid it returns to the Yonsei blue on a white bar. */
-.site-header:not(.is-solid) .brand-logo{ filter:brightness(0) invert(1); }
-@media (prefers-color-scheme: dark){ .brand-logo{ filter:brightness(0) invert(1); } }
+.site-header:not(.is-solid) .brand-logo{ filter:grayscale(1) invert(1) brightness(1.6); }
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .brand-logo{ filter:grayscale(1) invert(1) brightness(1.6); } }
+:root[data-theme="dark"] .brand-logo{ filter:grayscale(1) invert(1) brightness(1.6); }
 
 /* Once you scroll past the hero the header becomes a solid bar, so it never
    sits illegibly on top of running text. */

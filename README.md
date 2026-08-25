@@ -78,3 +78,23 @@ so there is no need to edit them first.
 - The site adapts to phones and tablets, and follows the reader's light or dark mode.
 - The publication list filters by year using the buttons above it.
 - The logo is an original wordmark built from the words "Hanna Cho Lab".
+
+## Image credits
+
+Stock photographs are served from Unsplash (free to use under the
+[Unsplash License](https://unsplash.com/license); attribution appreciated, not required):
+
+- Hero brain render — Shawn Day
+- MRI film sheets — National Cancer Institute
+- Open book — James Bold
+- Laboratory bench — Trnava University
+- Microphone — Kane Reinholdtsen
+- Blood-sample tubes — Testalize.me
+- Imaging scanner and scanner room — Accuray
+- Auditorium — ARTO SURAJ
+- Neurons — Bhautik Patel
+- Imaging-room ambience — David Trinks
+
+The PI portrait is cropped from the official Gangnam Severance Hospital profile.
+The Yonsei University English wordmark is the header asset from yonsei.ac.kr,
+placed temporarily until the official CI file replaces `assets/img/yonsei-logo-en.png`.
