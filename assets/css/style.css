@@ -67,6 +67,12 @@ a{ color:inherit; }
 .measure{ width:min(100% - (var(--pad-x) * 2), var(--measure)); margin-inline:auto; }
 .wide{    width:min(100% - (var(--pad-x) * 2), var(--wide));    margin-inline:auto; }
 
+/* Present for screen readers and document structure, invisible on screen. */
+.sr-only{
+  position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+  overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0;
+}
+
 .skip-link{ position:absolute; left:-9999px; }
 .skip-link:focus{
   left:16px; top:16px; z-index:200;
