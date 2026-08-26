@@ -62,11 +62,7 @@ body.is-locked{ overflow:hidden; }   /* stops the page scrolling behind the open
 img{ max-width:100%; display:block; }
 a{ color:inherit; }
 
-/* Every photograph is rendered in black and white, so colour images
-   can be dropped in without editing them first. */
-img{ filter:grayscale(1) contrast(1.04); }
-/* ...except the university mark, which keeps its official colour. */
-.brand-logo{ filter:none; }
+/* Photographs are shown in full colour. */
 
 .measure{ width:min(100% - (var(--pad-x) * 2), var(--measure)); margin-inline:auto; }
 .wide{    width:min(100% - (var(--pad-x) * 2), var(--wide));    margin-inline:auto; }

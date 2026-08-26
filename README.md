@@ -73,8 +73,7 @@ git push
 2. In `index.html`, uncomment the `<img>` line at that spot and delete the
    `<div class="ph">…</div>` line below it
 
-Colour photographs are converted to black and white automatically by the CSS,
-so there is no need to edit them first.
+Photographs are shown in full colour.
 
 ## Notes
 
