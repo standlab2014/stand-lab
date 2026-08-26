@@ -100,5 +100,7 @@ Stock photographs are served from Unsplash (free to use under the
 - Imaging-room ambience — David Trinks
 
 The PI portrait is cropped from the official Gangnam Severance Hospital profile.
-The Yonsei University English wordmark is the header asset from yonsei.ac.kr,
-placed temporarily until the official CI file replaces `assets/img/yonsei-logo-en.png`.
+The header carries the official Yonsei University College of Medicine signature
+(white variant, for the navy band). The official colour variant is kept at
+`assets/img/yonsei-com-color.png`; the vector original (.ai) from the university
+design centre is held offline in the lab's CI package.

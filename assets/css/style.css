@@ -84,7 +84,7 @@ a{ color:inherit; }
 
 /* Over the dark hero the mark is knocked out to white; once the header turns
    solid it returns to the Yonsei blue on a white bar. */
-.brand-logo{ filter:grayscale(1) invert(1) brightness(1.6); }
+/* The official white signature is used directly — no colour filtering. */
 
 /* Once you scroll past the hero the header becomes a solid bar, so it never
    sits illegibly on top of running text. */
@@ -107,7 +107,7 @@ body.is-locked .site-header{ background:var(--accent-deep); }
   font-family:var(--sans); color:#fff;
 }
 
-.brand-logo{ height:clamp(24px,2.4vw,30px); width:auto; }
+.brand-logo{ height:clamp(26px,2.6vw,34px); width:auto; }
 
 /* The STAND mark: an inline SVG so it takes the header's current colour. */
 .stand-mark{ height:clamp(30px,3vw,40px); width:auto; display:block; }
