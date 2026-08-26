@@ -189,15 +189,28 @@ body.is-locked .site-header{ background:var(--accent-deep); }
   overflow:hidden;
   padding:var(--head-h) var(--pad-x) clamp(56px,8vw,96px);
 }
-/* Drop a photograph in here and it sits behind the wordmark, dimmed. */
+/* The photograph sits behind the wordmark, dimmed, and drifts very slowly —
+   a 44-second zoom with a gentle breath in brightness. */
 .hero-panel img{
   position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
   opacity:.42;
+  animation:hero-drift 44s ease-in-out infinite alternate;
+  will-change:transform, opacity;
+}
+@keyframes hero-drift{
+  0%  { transform:scale(1.05) translate(0, 0);        opacity:.40; }
+  50% {                                               opacity:.48; }
+  100%{ transform:scale(1.14) translate(-1.6%, 2.2%); opacity:.40; }
 }
 .hero-mark{
   position:relative; z-index:1;
   display:grid; justify-items:center; gap:14px;
   color:#fff; text-align:center;
+  animation:hero-rise 1.1s ease-out both;   /* one soft entrance on load */
+}
+@keyframes hero-rise{
+  from{ opacity:0; transform:translateY(16px); }
+  to  { opacity:1; transform:none; }
 }
 .hero-mark .m1{
   font-family:var(--serif-display);
@@ -526,6 +539,7 @@ body.is-locked .site-header{ background:var(--accent-deep); }
   html{ scroll-behavior:auto; }
   .js .reveal{ opacity:1; transform:none; transition:none; }
   .menu, .menu nav a, .carousel-track{ transition:none; }
+  .hero-panel img, .hero-mark{ animation:none; }
 }
 
 /* ═══════════ RESPONSIVE ═══════════ */
