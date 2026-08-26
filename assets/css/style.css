@@ -84,23 +84,21 @@ a{ color:inherit; }
 
 /* Over the dark hero the mark is knocked out to white; once the header turns
    solid it returns to the Yonsei blue on a white bar. */
-.site-header:not(.is-solid) .brand-logo{ filter:grayscale(1) invert(1) brightness(1.6); }
-@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .brand-logo{ filter:grayscale(1) invert(1) brightness(1.6); } }
-:root[data-theme="dark"] .brand-logo{ filter:grayscale(1) invert(1) brightness(1.6); }
+.brand-logo{ filter:grayscale(1) invert(1) brightness(1.6); }
 
 /* Once you scroll past the hero the header becomes a solid bar, so it never
    sits illegibly on top of running text. */
 .site-header{ transition:background .3s ease, padding .3s ease, border-color .3s ease; border-bottom:1px solid transparent; }
+/* While the menu is open the page behind is light — keep the band navy
+   so the white close button and marks stay visible. */
+body.is-locked .site-header{ background:var(--accent-deep); }
+
 .site-header.is-solid{
-  mix-blend-mode:normal;
-  background:color-mix(in srgb, var(--bg) 92%, transparent);
-  backdrop-filter:blur(10px);
-  border-bottom-color:var(--line);
+  background:var(--accent-deep);   /* Yonsei navy band */
   padding-top:clamp(14px,1.8vw,20px); padding-bottom:clamp(14px,1.8vw,20px);
 }
-.site-header.is-solid .brand{ color:var(--text); }
-.site-header.is-solid .menu-btn span{ background:var(--text); }
-.site-header.is-solid .brand-rule{ background:var(--accent); }
+.site-header.is-solid .brand{ color:#fff; }
+.site-header.is-solid .menu-btn span{ background:#fff; }
 
 /* ── University mark above, then HANNA CHO — a rule — LAB ── */
 .brand{
@@ -108,7 +106,6 @@ a{ color:inherit; }
   text-decoration:none; line-height:1;
   font-family:var(--sans); color:#fff;
 }
-@media (prefers-color-scheme: dark){ .brand{ color:var(--text); } }
 
 .brand-logo{ height:clamp(24px,2.4vw,30px); width:auto; }
 
@@ -134,7 +131,6 @@ a{ color:inherit; }
   position:absolute; left:0; width:100%; height:1.5px;
   background:#fff; transition:transform .35s cubic-bezier(.6,.05,.2,1);
 }
-@media (prefers-color-scheme: dark){ .menu-btn span{ background:var(--text); } }
 .menu-btn span:nth-child(1){ top:5px; }
 .menu-btn span:nth-child(2){ top:15px; }
 .menu-btn.is-open span:nth-child(1){ transform:translateY(5px) rotate(45deg); }
