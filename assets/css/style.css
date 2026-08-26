@@ -439,6 +439,26 @@ body.is-locked .site-header{ background:var(--accent-deep); }
 .pub-meta{ margin:0; color:var(--muted); font-size:.92em; line-height:1.6; }
 .venue{ font-style:italic; }
 
+/* ═══════════ FULL PUBLICATION ARCHIVE ═══════════ */
+.arc-group{
+  display:grid; grid-template-columns:80px 1fr; gap:clamp(14px,3vw,36px);
+  padding:clamp(18px,2.6vw,26px) 0; border-top:1px solid var(--line);
+}
+.arc-group:last-child{ border-bottom:1px solid var(--line); }
+.arc-year{
+  font-family:var(--sans); font-size:13px; letter-spacing:.14em;
+  color:var(--text); margin:0; padding-top:.5em; font-weight:600;
+}
+.arc-year span{ color:var(--muted); font-weight:400; }
+.arc-list{ list-style:none; margin:0; padding:0; }
+.arc-list li{ padding:9px 0; }
+.arc-title{ margin:0; font-size:.98em; line-height:1.55; }
+.arc-venue{ margin:2px 0 0; color:var(--muted); font-size:.85em; font-style:italic; }
+@media (max-width:600px){
+  .arc-group{ grid-template-columns:1fr; gap:6px; }
+  .arc-year{ padding-top:0; }
+}
+
 /* ═══════════ MEDIA LIST ═══════════ */
 .media-list{ list-style:none; margin:0; padding:0; }
 .media-list li{
