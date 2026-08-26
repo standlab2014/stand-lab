@@ -115,6 +115,11 @@ img{ filter:grayscale(1) contrast(1.04); }
 @media (prefers-color-scheme: dark){ .brand{ color:var(--text); } }
 
 .brand-logo{ height:clamp(24px,2.4vw,30px); width:auto; }
+
+/* The STAND mark: an inline SVG so it takes the header's current colour. */
+.stand-mark{ height:clamp(30px,3vw,40px); width:auto; display:block; }
+.stand-mark-hero{ height:clamp(64px,11vw,132px); }
+
 .brand-mark{ display:flex; align-items:center; gap:10px; }
 .brand-name{ font-size:clamp(15px,1.4vw,18px); font-weight:700; letter-spacing:.02em; }
 .brand-rule{
@@ -208,8 +213,9 @@ img{ filter:grayscale(1) contrast(1.04); }
 }
 .hero-mark .m-rule{ width:clamp(120px,22vw,300px); height:1px; background:currentColor; opacity:.8; }
 .hero-mark .m2{
-  font-family:var(--sans); font-weight:700;
-  font-size:clamp(11px,1.2vw,15px); letter-spacing:.52em; text-indent:.52em;
+  font-family:var(--sans); font-weight:600;
+  font-size:clamp(10px,1.15vw,14px); letter-spacing:.26em; text-indent:.26em;
+  line-height:1.7; max-width:min(92vw,760px);
 }
 
 /* The mission statement sits under the panel, on white */

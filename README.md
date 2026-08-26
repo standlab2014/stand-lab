@@ -1,4 +1,7 @@
-# Hanna Cho Lab — website
+# STAND Lab — website
+
+STAND — Seoul Trajectory of Aging and Neuro-Degeneration. The lab of Prof. Hanna Cho,
+Gangnam Severance Hospital, Yonsei University College of Medicine.
 
 A static website: plain HTML, CSS and JavaScript. Nothing to install, no build step,
 and it is hosted free on GitHub Pages.
@@ -77,7 +80,9 @@ so there is no need to edit them first.
 
 - The site adapts to phones and tablets, and follows the reader's light or dark mode.
 - The publication list filters by year using the buttons above it.
-- The logo is an original wordmark built from the words "Hanna Cho Lab".
+- The logo is an original STAND wordmark: the letters with a rising trajectory line
+  ending in a data point — the study name drawn literally. It is an inline SVG in the
+  header of each page, so it follows the header colour with no image files involved.
 
 ## Image credits
 
